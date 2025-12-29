@@ -13,7 +13,7 @@ public class DBAccess {
 	private String url = "jdbc:mysql://localhost:3306/library?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8";
 
 	private String usr = "root";
-	private String pwd = "123456";
+	private String pwd = "23456789";
 
 	private Connection conn = null;
 
