@@ -4,6 +4,8 @@
 
 本文档详细记录了 Library Web 项目在 IDEA 中配置 Tomcat 并部署运行的全流程，包含数据库配置、环境安装、IDEA 配置、常见问题解决及登录信息，确保项目可正常启动并使用。
 
+项目地址：https://github.com/Lain-Ego0/FJUT-WebMySQL
+
 ## 一、前置环境要求
 
 1. JDK：版本不低于 1.8，需提前完成配置与环境变量设置
