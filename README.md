@@ -1,2 +1,0 @@
-# FJUT-WebMySQL
-Test

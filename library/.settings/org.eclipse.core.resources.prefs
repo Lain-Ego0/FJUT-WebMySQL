@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+encoding//src/com/demo/dao/AdminDAO.java=UTF-8
+encoding//src/com/demo/dao/BookDAO.java=UTF-8
+encoding//src/com/demo/dao/StudentDAO.java=UTF-8
+encoding//src/com/demo/javabean/Admins.java=UTF-8
+encoding//src/com/demo/javabean/Books.java=UTF-8
+encoding//src/com/demo/servlet/AdminLoginServlet.java=UTF-8
+encoding//src/com/demo/servlet/BorrowServlet.java=UTF-8
+encoding//src/com/demo/servlet/ManageBookServlet.java=UTF-8
+encoding//src/com/demo/servlet/ManageStudentServlet.java=UTF-8
+encoding//src/com/demo/servlet/UserLoginServlet.java=UTF-8

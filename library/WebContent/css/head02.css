@@ -1,0 +1,73 @@
+@import url("ionicons.min.css");
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: sans-serif;
+}
+
+.sidebar {
+    float: left;
+    width: 200px;
+    height: 100%;
+    background-color: #ae432200;
+    overflow: auto;
+    transition: 0.8s all;
+}
+
+.side {
+    margin-left: 0;
+}
+
+
+.sidebar ul {
+    margin: 50px 0px 0px 0px;
+    padding: 0;
+}
+
+
+.sidebar ul li {
+    list-style: none;
+}
+
+
+.sidebar ul li a {
+    text-decoration: none;
+    padding: 10px 0px;
+    margin: 5px 0px;
+    color: white;
+    width: 100%;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+    display: block;
+    transition: 0.6s all;
+}
+
+.sidebar ul li a:hover {
+    background: rgba(166, 165, 134, 0.45);
+   
+}
+
+/*.btn {
+    position: absolute;
+    top: 72px;
+    float: left;
+    padding: 0 10px;
+    font-size: 36px;
+    text-decoration: none;
+    color: #ede9e3;
+    font-family: Ionicons;
+    cursor: pointer;
+
+}
+
+.btn:before {
+    content: '\f20d';
+}
+
+.btnc:before {
+    content: '\f12a';
+}*/
