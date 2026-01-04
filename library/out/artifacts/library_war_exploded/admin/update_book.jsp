@@ -2,7 +2,7 @@
 <%@ page import="com.demo.dao.BookDAO" %>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
-//String path = request.getContextPath();
+    //String path = request.getContextPath();
 //String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -56,35 +56,51 @@
     </style>
 </head>
 <body style="background-image: none" >
-    <div class="box-body" id="box-body" style="overflow-y: auto;"> 
-        <form action="manageBookServlet.do?action=updatebook" method="post" >
+<div class="box-body" id="box-body" style="overflow-y: auto;">
+    <form action="manageBookServlet.do?action=updatebook" method="post" >
         <input type="hidden" name="sid" value="${book.id}"/>
-            <table  >
-         <%
-             //1.要设置value的值为之前内容，就需要，servlet重定向，把原来数据先添加进去，
-             //2.servlet里面接收新设置的内容，设置book的各个参数，调用bookdao update 刷新图书内容 ,这里采用EL表达式
-                %>
-                <tr >
-                    <th>图书名称: </th>
-                  <td><input type="text" name="name" value="${book.name}"></td>
-                    
-                </tr>
-                <tr>
-                    <th>图书作者: </th>
-                    <td ><input type="text" name="author"  value="${book.author}"></td>
-                </tr>
-                <tr>
-                    <th>图书数量: </th>
-                    <td><input type="text" name="amount"  value="${book.amount}"></td>
-                </tr>
-                <tr>
-                    <th>图书类型: </th>
-                    <td ><input type="text" name="category"  value="${book.category}"></td>
-                </tr>
-            </table>
-            <br>
-            <input type="submit"  value="提交">
-        </form>
-      </div>
-  </body>
+        <table  >
+            <%
+                //1.要设置value的值为之前内容，就需要，servlet重定向，把原来数据先添加进去，
+                //2.servlet里面接收新设置的内容，设置book的各个参数，调用bookdao update 刷新图书内容 ,这里采用EL表达式
+            %>
+            <tr >
+                <th>图书名称: </th>
+                <td><input type="text" name="name" value="${book.name}"></td>
+            </tr>
+            <tr>
+                <th>ISBN（书号）: </th>
+                <td ><input type="text" name="isbn"  value="${book.isbn}"></td>
+            </tr>
+            <tr>
+                <th>图书作者: </th>
+                <td ><input type="text" name="author"  value="${book.author}"></td>
+            </tr>
+            <tr>
+                <th>出版社: </th>
+                <td ><input type="text" name="publisher"  value="${book.publisher}"></td>
+            </tr>
+            <tr>
+                <th>图书定价: </th>
+                <td ><input type="text" name="price"  value="${book.price}"></td>
+            </tr>
+            <tr>
+                <th>内容简介: </th>
+                <td ><input type="text" name="intro"  value="${book.intro}"></td>
+            </tr>
+            <tr>
+                <th>图书类型: </th>
+                <td ><input type="text" name="category"  value="${book.category}"></td>
+            </tr>
+            <tr>
+                <th>图书数量: </th>
+                <td><input type="text" name="amount"  value="${book.amount}"></td>
+            </tr>
+        </table>
+        <br>
+        <!-- 保留按钮居中的内联样式 -->
+        <input type="submit"  value="提交" style="margin: 0 auto;">
+    </form>
+</div>
+</body>
 </html>

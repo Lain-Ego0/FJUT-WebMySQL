@@ -1,50 +1,118 @@
-/* 全局样式 */
+/* 全局样式统一，横屏优先 */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Microsoft Yahei", "PingFang SC", "Hiragino Sans GB", "楷体", sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #F5F7FA;
+    color: #4E5969;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
 }
 
-/* 表格区域样式 */
+/* 主内容容器：强制匹配侧边栏宽度+无留白 */
+.main-content {
+    width: calc(100% - 220px);
+    height: 100vh;
+    margin-left: 220px; /* 必须等于侧边栏宽度 */
+    padding: 15px;
+    box-sizing: border-box;
+    overflow: auto;
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+/* 表格标题美化 */
+.table-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1F2329;
+    margin-bottom: 30px;
+    background: linear-gradient(90deg, #165DFF, #36CFC9);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* 表格样式：占满主内容宽度 */
 table {
-    width: 100%;
+    width: 100%; /* 强制占满主内容宽度，无右侧留白 */
     border-collapse: collapse;
     margin-top: 20px;
+    background-color: #FFFFFF;
+    border-radius: 0 !important;
+    overflow: hidden;
+    box-shadow: none !important;
+    border: none !important;
 }
 
 th, td {
-    padding: 10px;
+    padding: 20px;
     text-align: left;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #F0F2F5;
+    font-size: 16px;
 }
 
 th {
-    background-color: #f0f0f0;
+    background-color: #F7F8FA;
+    color: #1F2329;
+    font-weight: 600;
+    white-space: nowrap;
+    font-size: 18px;
+    position: relative;
+}
+
+th::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    width: 30px;
+    height: 3px;
+    background: linear-gradient(90deg, #165DFF, #36CFC9);
+    border-radius: 3px;
 }
 
 tr:hover {
-    background-color: #f5f5f5;
+    background-color: #F7F8FA;
+    transition: background-color 0.2s ease;
+    transform: scale(1.005);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* 分页区域样式 */
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* 分页样式：居中无留白 */
 .pagination {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 40px;
+    padding: 10px;
 }
 
 .pagination a {
-    color: #333;
-    padding: 8px 16px;
+    color: #4E5969;
+    padding: 12px 20px;
     text-decoration: none;
-    transition: background-color .3s;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    margin: 0 8px;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 .pagination a.active {
-    background-color: #4CAF50;
-    color: white;
+    background: linear-gradient(90deg, #165DFF, #36CFC9);
+    color: #FFFFFF;
+    box-shadow: 0 5px 15px rgba(22, 93, 255, 0.2);
 }
 
 .pagination a:hover:not(.active) {
-    background-color: #ddd;
+    background-color: #F7F8FA;
+    color: #165DFF;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(22, 93, 255, 0.1);
 }

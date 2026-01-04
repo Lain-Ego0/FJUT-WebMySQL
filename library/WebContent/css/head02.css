@@ -1,73 +1,168 @@
 @import url("ionicons.min.css");
 
-body, html {
+/* 全局样式统一：彻底消除背景色差 */
+html, body {
     margin: 0;
     padding: 0;
-    height: 100%;
-    width: 100%;
-    font-family: sans-serif;
+    height: 100vh;
+    width: 100vw;
+    font-family: "Microsoft Yahei", "PingFang SC", "Hiragino Sans GB", "楷体", sans-serif;
+    background-color: #FFFFFF !important; /* 统一全局为纯白，消除所有色差 */
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
+/* 原有侧边栏样式（保留，仅统一配色不突兀） */
 .sidebar {
-    float: left;
-    width: 200px;
-    height: 100%;
-    background-color: #ae432200;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 220px;
+    height: 100vh;
+    background: linear-gradient(180deg, #1F2329 0%, #2D333B 100%);
     overflow: auto;
-    transition: 0.8s all;
+    transition: all 0.3s ease;
+    box-shadow: 4px 0 16px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .side {
     margin-left: 0;
 }
 
-
 .sidebar ul {
-    margin: 50px 0px 0px 0px;
+    margin: 60px 0 0 0;
     padding: 0;
 }
 
-
 .sidebar ul li {
     list-style: none;
+    margin-bottom: 10px;
 }
-
 
 .sidebar ul li a {
     text-decoration: none;
-    padding: 10px 0px;
-    margin: 5px 0px;
-    color: white;
-    width: 100%;
-    font-size: 22px;
-    line-height: 30px;
+    padding: 16px 0;
+    margin: 0 16px;
+    color: #C9CDD4;
+    width: calc(100% - 32px);
+    font-size: 20px;
+    line-height: 28px;
     text-align: center;
     display: block;
-    transition: 0.6s all;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.sidebar ul li a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: all 0.5s ease;
+}
+
+.sidebar ul li a:hover::before {
+    left: 100%;
 }
 
 .sidebar ul li a:hover {
-    background: rgba(166, 165, 134, 0.45);
-   
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
 }
 
-/*.btn {
-    position: absolute;
-    top: 72px;
-    float: left;
+/* ========== 表单样式（统一背景，消除色差） ========== */
+/* 表单容器：居中+边框，背景和全局统一为纯白 */
+.student-form, .book-form {
+    width: 500px;
+    margin: 50px auto 0;
+    padding: 25px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: #FFFFFF !important; /* 和全局背景一致 */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* 表单标题 */
+.student-form h3, .book-form h3 {
+    text-align: center;
+    color: #333;
+    margin: 0 0 20px 0;
+    font-size: 20px;
+}
+
+/* 表单行：对齐标签和输入框 */
+.form-row {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+/* 标签：固定宽度，右对齐 */
+.form-row label {
+    width: 100px;
+    text-align: right;
+    margin-right: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* 输入框：统一样式，无多余底色 */
+.form-row input {
+    flex: 1;
+    height: 36px;
     padding: 0 10px;
-    font-size: 36px;
-    text-decoration: none;
-    color: #ede9e3;
-    font-family: Ionicons;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    background: #FFFFFF; /* 输入框背景也统一为白 */
+}
+
+/* 输入框聚焦：轻微高亮 */
+.form-row input:focus {
+    border-color: #165DFF;
+    box-shadow: 0 0 0 2px rgba(22,93,255,0.1);
+}
+
+/* 按钮组：居中 */
+.btn-group {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* 按钮样式：简洁统一 */
+.btn-group input[type="submit"], .btn-group input[type="reset"] {
+    width: 80px;
+    height: 36px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
     cursor: pointer;
-
+    margin: 0 5px;
 }
 
-.btn:before {
-    content: '\f20d';
+/* 提交按钮 */
+.btn-group input[type="submit"] {
+    background-color: #165DFF;
 }
 
-.btnc:before {
-    content: '\f12a';
-}*/
+/* 重置按钮 */
+.btn-group input[type="reset"] {
+    background-color: #999;
+}
+
+/* 按钮hover效果 */
+.btn-group input[type="submit"]:hover {
+    background-color: #0E42D2;
+}
+
+.btn-group input[type="reset"]:hover {
+    background-color: #777;
+}

@@ -1,46 +1,97 @@
-/* 全局样式 */
+/* 全局样式统一，横屏优先 */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Microsoft Yahei", "PingFang SC", "Hiragino Sans GB", "楷体", sans-serif;
     margin: 0 auto;
     padding: 0;
+    background-color: #F5F7FA;
+    color: #4E5969;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
 }
 
-/* 侧边栏样式 */
+/* 侧边栏：固定左侧+隐藏所有前置图标 */
 .sidebar {
-    background-color: #232121;
-    width: 200px;
-    height: 100%;
+    background: linear-gradient(180deg, #1F2329 0%, #2D333B 100%);
+    width: 220px;
+    height: 100vh;
     position: fixed;
-    padding: 20px;
+    top: 0;
+    left: 0; /* 强制贴左，避免错位 */
+    padding: 20px 0;
+    box-shadow: 4px 0 16px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+    overflow: auto;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .sidebar ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
 .sidebar li {
     margin-bottom: 10px;
 }
 
+/* 1. 隐藏侧边栏链接内的所有前置图标（解决“全部图书”前的蓝色叉叉） */
+.sidebar a > *:first-child, /* 匹配链接内第一个元素（图标） */
+.sidebar li > span:first-child,
+.sidebar li > i:first-child {
+    display: none !important; /* 强制隐藏 */
+}
+
+/* 2. 侧边栏链接样式（无图标残留） */
 .sidebar a {
     text-decoration: none;
-    color: #333;
+    color: #C9CDD4;
+    display: block;
+    padding: 16px 20px;
+    margin: 0 10px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    font-size: 17px;
+    position: relative;
 }
 
 .sidebar a:hover {
-    color: #007bff;
+    color: #FFFFFF;
+    background: rgba(22, 93, 255, 0.25);
+    transform: translateX(6px);
+    box-shadow: 0 0 15px rgba(22, 93, 255, 0.2);
 }
 
-/* 主要内容区域样式 */
-.box {
+.sidebar a.active {
+    background: rgba(22, 93, 255, 0.3);
+    color: #FFFFFF;
+    border-left: 4px solid #165DFF;
+}
 
-    padding: 0 20px;
+/* 主内容区域：彻底解决遮挡+留白问题 */
+.main-content { /* 注意：需给主内容套这个class（替换之前的.box） */
+    padding: 15px;
+    margin-left: 220px; /* 强制避开侧边栏宽度 */
+    box-sizing: border-box;
+    width: calc(100% - 220px); /* 占满剩余宽度 */
+    height: 100vh; /* 占满屏幕高度 */
+    overflow: auto;
+    border: none !important;
+    background-color: #FFFFFF;
+    position: relative;
+    left: 0; /* 强制左对齐，避免右移 */
+    top: 0;
 }
 
 .box-head {
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 32px;
+    font-weight: 700;
+    color: #1F2329;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #F0F2F5;
+    margin-bottom: 30px;
+    background: linear-gradient(90deg, #165DFF, #36CFC9);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
-
-

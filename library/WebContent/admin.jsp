@@ -29,12 +29,13 @@
 <% Calendar cal = Calendar.getInstance();
     SimpleDateFormat format = new SimpleDateFormat("yyyy年-MM月-dd日");
 %>
-<div class="box">
+<!-- 关键修改：将 class="box" 改为 class="main-content"，解决布局错位 -->
+<div class="main-content">
     <div class="box-head" ><h1>图书管理系统</h1></div>
     <!-- 用户注册的标题 -->
     <p align="right">欢迎你，管理员 </p>
     <p align="right"><% out.println(format.format(cal.getTime()));%></p>
-    <iframe name="showBook" src="" frameborder="0" width="100%" height="80%">
+    <iframe name="showBook" src="" frameborder="0" width="100%" height="80%"></iframe>
 </div>
 </body>
 </html>

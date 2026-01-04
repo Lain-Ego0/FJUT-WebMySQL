@@ -1,7 +1,7 @@
 package com.demo.javabean;
 
 public class Students {
-	public static final int PAGE_SIZE=5;
+    public static final int PAGE_SIZE=5;
     private int id;
     private String user;
     private String password;
@@ -10,6 +10,10 @@ public class Students {
     private String classes;
     private String email;
     private int amount;
+    // 新增：对应SQL表的3个字段（借书证号、所在单位、职业）
+    private String card_id;
+    private String unit;
+    private String occupation;
 
     public int getId() {
         return id;
@@ -73,5 +77,32 @@ public class Students {
 
     public void setAmount(int amount) {
         this.amount = amount;
+    }
+
+    // 新增：card_id（借书证号）的getter/setter方法，格式与原有保持一致
+    public String getCard_id() {
+        return card_id;
+    }
+
+    public void setCard_id(String card_id) {
+        this.card_id = card_id;
+    }
+
+    // 新增：unit（所在单位）的getter/setter方法
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
+    // 新增：occupation（职业）的getter/setter方法
+    public String getOccupation() {
+        return occupation;
+    }
+
+    public void setOccupation(String occupation) {
+        this.occupation = occupation;
     }
 }

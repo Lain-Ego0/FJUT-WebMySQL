@@ -3,7 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
-<title>My Message</title>
+	<title>My Message</title>
 	<style>
 		body {
 			font-family: Arial, sans-serif;
@@ -49,56 +49,68 @@
 	</style>
 </head>
 <body>
+<%
+	StudentDAO s_dao = new StudentDAO();
+	Students student = (Students)session.getAttribute("student");
+	if(student != null){
+		student = s_dao.getStudentByName(student.getUser());
+		session.setAttribute("student",student);
+%>
+<div id="my_message">
+	<h2><%="我的基本信息"%></h2>
+	<table>
+		<tr>
+			<td width="120px">我的学号:</td>
+			<td>${student.user}</td>
+		</tr>
+		<tr>
+			<td>我的姓名:</td>
+			<td>${student.name}</td>
+		</tr>
+		<tr>
+			<td>我的年级:</td>
+			<td>${student.grade}</td>
+		</tr>
+		<tr>
+			<td>我的班级:</td>
+			<td>${student.classes}</td>
+		</tr>
+		<tr>
+			<td>我的邮箱:</td>
+			<td>${student.email == null ? '未填写' : student.email}</td>
+		</tr>
+		<%-- 新增：我的借书证号 --%>
+		<tr>
+			<td>我的借书证号:</td>
+			<td>${student.card_id == null ? '未填写' : student.card_id}</td>
+		</tr>
+		<%-- 新增：我的所在单位 --%>
+		<tr>
+			<td>我的所在单位:</td>
+			<td>${student.unit == null ? '未填写' : student.unit}</td>
+		</tr>
+		<%-- 新增：我的职业 --%>
+		<tr>
+			<td>我的职业:</td>
+			<td>${student.occupation == null ? '未填写' : student.occupation}</td>
+		</tr>
+		<tr>
+			<td>可借书籍:</td>
+			<td>${8-student.amount}</td>
+		</tr>
+		<tr>
+			<td>已借书籍:</td>
+			<td>${student.amount}</td>
+		</tr>
+	</table>
 	<%
-        StudentDAO s_dao = new StudentDAO();
-        Students student = (Students)session.getAttribute("student");
-        if(student != null){
-            student = s_dao.getStudentByName(student.getUser());
-            session.setAttribute("student",student);
-    %>
-	<div id="my_message">
-		<h2><%="我的基本信息"%></h2>
-		<table>
-			<%--   <tr><td width="120px">我的学号:</td><td><%=student.getUser()%></td></tr>
-                   <!--   <tr><td>我的密码:</td><td><%=student.getPassword()%></td></tr>-->
-                     <tr><td>我的系科:</td><td><%=student.getName()%></td></tr>
-                    <tr><td>我的年级:</td><td><%=student.getGrade()%></td></tr>
-                    <tr><td>我的班级:</td><td><%=student.getClasses()%></td></tr>
-                    <tr><td>我的邮箱:</td><td><%=student.getEmail()%></td></tr>
-                    <tr><td>可借书籍:</td><td><%=10 - student.getAmount()%></td></tr>
-                    <tr><td>已借书籍:</td><td><%=student.getAmount()%></td></tr>--%>
-			<tr>
-				<td width="120px">我的学号:</td>
-				<td>${student.user}</td>
-			</tr>
-			<tr>
-				<td>我的姓名:</td>
-				<td>${student.name}</td>
-			</tr>
-			<tr>
-				<td>我的年级:</td>
-				<td>${student.grade}</td>
-			</tr>
-			<tr>
-				<td>我的班级:</td>
-				<td>${student.classes}</td>
-			</tr>
-			<tr>
-				<td>我的邮箱:</td>
-				<td>${student.email}</td>
-			</tr>
-			<tr>
-				<td>可借书籍:</td>
-				<td>${10-student.amount}</td>
-			</tr>
-			<tr>
-				<td>已借书籍:</td>
-				<td>${student.amount}</td>
-			</tr>
-		</table>
-		<%
-            }
-        %>
-	</div>
+	} else {
+		// 无学生信息时的提示
+	%>
+	<h3 style="text-align:center; color:#ff4444;">未获取到个人信息，请先登录！</h3>
+	<%
+		}
+	%>
+</div>
 </body>
 </html>
